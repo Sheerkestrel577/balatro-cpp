@@ -1,0 +1,5 @@
+{
+ "gen": 21,
+ "champion": "models/v_gen21.npz",
+ "rejects": 0
+}

@@ -1,0 +1,9 @@
+{
+ "gen": 21,
+ "champion": "models/v_gen21.npz",
+ "last_gate": "v2[v_gen21] vs v2[v_gen20]: paired win diff -2 (4 vs 6, noise band +/-3.2), ante diff +0.03 +/-0.04 over 998 seeds -> decided on ante -> PROMOTE",
+ "wins_this_gen": 50,
+ "consecutive_rejects": 0,
+ "mean_ante": 3.3753232668724453,
+ "updated": "2026-08-22 17:52:03"
+}

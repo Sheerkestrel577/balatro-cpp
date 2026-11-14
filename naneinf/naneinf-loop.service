@@ -1,0 +1,26 @@
+# /etc/systemd/system/naneinf-loop.service
+#
+#   sudo cp naneinf-loop.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now naneinf-loop
+#   journalctl -u naneinf-loop -f          # live logs
+#
+# autoloop.py self-heals on phase failures (backs off and retries), so
+# systemd only needs to cover process crashes and reboots.
+
+[Unit]
+Description=naneinf balatro generation loop
+After=network.target
+
+[Service]
+User=sheerk
+WorkingDirectory=/home/sheerk/naneinf/python
+ExecStart=/usr/bin/python3 autoloop.py --runs_per_gen 12000 --eval_runs 200 --workers 4
+Restart=always
+RestartSec=300
+Nice=10
+# a runaway numpy job should die before it takes the box with it
+MemoryMax=6G
+
+[Install]
+WantedBy=multi-user.target
